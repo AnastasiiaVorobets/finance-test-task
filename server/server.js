@@ -27,7 +27,6 @@ function utcDate() {
 }
 
 function getQuotes(socket) {
-
   const quotes = tickers.map(ticker => ({
     ticker,
     exchange: 'NASDAQ',
@@ -42,20 +41,6 @@ function getQuotes(socket) {
   socket.emit('ticker', quotes);
 }
 
-function trackTickers(socket) {
-  // run the first time immediately
-  getQuotes(socket);
-
-  // every N seconds
-  const timer = setInterval(function() {
-    getQuotes(socket);
-  }, FETCH_INTERVAL);
-
-  socket.on('disconnect', function() {
-    clearInterval(timer);
-  });
-}
-
 const app = express();
 app.use(cors());
 const server = http.createServer(app);
@@ -66,14 +51,28 @@ const socketServer = io(server, {
   }
 });
 
-app.get('/', function(req, res) {
-  res.sendFile(__dirname + '/index.html');
-});
+function trackTickers(socket) {
+  getQuotes(socket);
+
+  const timer = setInterval(function() {
+    getQuotes(socket);
+  }, FETCH_INTERVAL);
+
+  socket.on('disconnect', function() {
+    clearInterval(timer);
+  });
+}
 
 socketServer.on('connection', (socket) => {
   socket.on('start', () => {
+    getQuotes(socket);
+
     trackTickers(socket);
   });
+});
+
+app.get('/', function(req, res) {
+  res.sendFile(__dirname + '/index.html');
 });
 
 server.listen(PORT, () => {
