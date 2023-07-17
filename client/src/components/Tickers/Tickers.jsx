@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './tickers.css';
 
 function Tickers({ ticker }) {
   const [prevPrice, setPrevPrice] = useState(ticker.price);

@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import './App.css';
 import socketIO from 'socket.io-client';
-import TickerList from "../src/components/TickerList";
+import Header from './components/Header/Header';
+import Menu from './components/Menu/Menu';
+import TickerList from "./components/TickerList/TickerList";
+import './App.css';
+
 const socket = socketIO.connect('http://localhost:4000');
 
 function App() {
@@ -18,7 +21,9 @@ function App() {
 
   return (
     <div className="App">
-      <TickerList  tickers={tickers}/>
+      <Header />
+      <Menu />
+      <TickerList tickers={tickers} />
     </div>
   );
 }

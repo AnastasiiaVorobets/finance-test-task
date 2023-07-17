@@ -1,0 +1,31 @@
+.ticker_block {
+  display: inline-block;
+  margin: 20px;
+  width: 400px;
+  border: 1px solid black;
+  border-radius: 25px;
+  background-color: whitesmoke;
+  transition: transform 0.5s;
+  font-size: 20px;
+}
+
+.ticker_block:hover {
+  transform: scale(110%);
+  cursor: pointer;
+  background-color: rgb(78, 109, 182);
+}
+
+.ticker_block.green_color {
+  background-color: rgb(59, 123, 59);
+}
+
+.ticker_block.red_color {
+  background-color: rgb(147, 0, 0);
+}
+
+.ticker__change {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  justify-content: center;
+}

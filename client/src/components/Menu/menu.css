@@ -1,0 +1,25 @@
+.menu {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  justify-content: center;
+  gap: 40px;
+  font-size: 30px;
+}
+
+.menu__list {
+  color: black;
+  background-color: rgb(243, 235, 235);
+  padding: 10px;
+  border-radius: 25px;
+  transition: all 0.5s;
+}
+
+.menu__list:hover {
+  background-color: rgb(130, 130, 130);
+  cursor: pointer;
+}
+
+.menu__list--crypto {
+  background: rgb(78, 109, 182);
+}
