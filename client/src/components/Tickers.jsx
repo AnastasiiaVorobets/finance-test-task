@@ -14,7 +14,6 @@ function Tickers({ ticker }) {
   }, [ticker.price]);
 
   const priceReduction = ticker.price < prevPrice;
-  const priceSign = {priceReduction} ? '-' : '+';
 
   return (
     <div className={`ticker_block ${priceReduction ? 'red_color' : 'green_color'}`}>
@@ -22,8 +21,8 @@ function Tickers({ ticker }) {
       <p>Price: {ticker.price}</p>
        
       <div className='ticker__change'>
-          <p>Change: {priceSign} {ticker.change}</p>
-          <p>{priceSign} {ticker.change_percent} % </p>
+        <p>Change: {priceReduction ? '-' : '+'} {ticker.change}</p>
+        <p>{priceReduction ? '-' : '+'} {ticker.change_percent} % </p>
       </div>
     </div>
   );
