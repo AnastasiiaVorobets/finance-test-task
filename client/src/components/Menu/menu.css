@@ -1,3 +1,5 @@
+@import '../../utils/variables.css';
+
 .menu {
   display: flex;
   flex-direction: row;
@@ -9,17 +11,17 @@
 
 .menu__list {
   color: black;
-  background-color: rgb(243, 235, 235);
+  background-color: var(--white-color);
   padding: 10px;
   border-radius: 25px;
   transition: all 0.5s;
 }
 
 .menu__list:hover {
-  background-color: rgb(130, 130, 130);
+  background-color: var(--gray-color);
   cursor: pointer;
 }
 
 .menu__list--crypto {
-  background: rgb(78, 109, 182);
+  background: var(--blue-color);
 }

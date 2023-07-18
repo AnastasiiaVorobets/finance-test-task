@@ -1,10 +1,12 @@
+@import '../../utils/variables.css';
+
 .ticker_block {
   display: inline-block;
   margin: 20px;
-  width: 400px;
-  border: 1px solid black;
+  width: 500px;
+  border: 1px solid var(--black-color);
   border-radius: 25px;
-  background-color: whitesmoke;
+  background-color: var(--white-color);
   transition: transform 0.5s;
   font-size: 20px;
 }
@@ -12,15 +14,14 @@
 .ticker_block:hover {
   transform: scale(110%);
   cursor: pointer;
-  background-color: rgb(78, 109, 182);
 }
 
 .ticker_block.green_color {
-  background-color: rgb(59, 123, 59);
+  background-color: var(--green-color);
 }
 
 .ticker_block.red_color {
-  background-color: rgb(147, 0, 0);
+  background-color: var(--red-color);
 }
 
 .ticker__change {
